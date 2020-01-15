@@ -75,9 +75,9 @@ Markdown 格式特别适合记录自己创作的笔记, 以及摘抄技术类文
 
     ...
     drops those items which don’t contain a price:
-
+    
         vat\_factor \= 1.15
-
+    
         def process\_item(self, item, spider):
             if item.get('price'):
                 if item.get('price\_excludes\_vat'):
@@ -97,9 +97,9 @@ Markdown 格式特别适合记录自己创作的笔记, 以及摘抄技术类文
 
     ...
     drops those items which don’t contain a price:
-
+    
         vat_factor = 1.15
-
+    
         def process_item(self, item, spider):
             if item.get('price'):
                 if item.get('price_excludes_vat'):
@@ -333,13 +333,47 @@ Notable 通过在 Front-Matter 里添加元数据来管理一系列 md 文档, �
 
 
 
-### 指向另一个 Markdown 文本的指定位置
+### 链接到 Markdown 文本的指定位置
 
 比如 OneNote 和 Notion 有这个功能, 文档中的每个段落都有自己的独特链接
 
-在 Markdown 的编辑器和管理工具里, 暂时没找到这个的解决办法
+在 Markdown 的编辑器里, 暂时没能妥当解决这个问题, 现在可以做到这些:
 
-Markdown 生成 HTML 之后, 倒是很好解决, 各种 md to site 工具都可以, 参考 [Markdown 拓展 Header Anchors VuePress](https://v1.vuepress.vuejs.org/zh/guide/markdown.html#header-anchors)
+**在同一个 md 文件中指向某个章节标题** 两个办法, 把标题直接做为锚点 (空格要写成 `-`), 或手动写一个 `HTML <anchor>`
+
+```markdown
+[指向章节标题](#章节-二) 或 [指向 name anthor](#chapter-3)
+
+
+### 章节 二
+...
+...
+...
+<a name="chapter-3"></a>
+...
+...
+...
+```
+
+这两种写法在 Typora 里 `Ctrl+点击`, 都能跳转到对应位置
+
+第一种写法在 VSCode 里 `Alt+点击` 能跳转到章节位置, 第二种无效
+
+
+
+**指向另一个 md 文件中的某个章节标题** 
+
+```markdown 
+[指向另一个文件](./另一个-md-文件名称.md)
+
+[指向另一个文件的标题](./另一个-md-文件名称.md#章节-四)
+```
+
+这样在 VSCode 里 `Alt+点击` 就能跳转到所需的位置, 但在 Typora 里无效
+
+
+
+Markdown 生成 HTML 之后, 相互链接问题就很好解决了, 各种 md to site 工具都有自家的方案, 比如 [Markdown 拓展 Header Anchors VuePress](https://v1.vuepress.vuejs.org/zh/guide/markdown.html#header-anchors)
 
 
 
