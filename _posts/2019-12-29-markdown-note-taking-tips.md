@@ -418,7 +418,11 @@ VSCode 插件 [Nested Tags](https://marketplace.visualstudio.com/items?itemName=
 
 ### 在 Markdown 中修复中英文空格
 
-这个不能用 pangu, 因为文中有 `行内代码` 时会给修复乱掉, 可以使用 [louisun/HeySpace: 中英文混排自动加空格](https://github.com/louisun/HeySpace) 效果挺好
+这个不能用命令行版的 pangu, 因为文中有 `行内代码` 时会给修复乱掉, API 版的可以用, 但依然会有些不满意的地方, 比如 `method()` 会被转为 `method ()`
+
+
+
+也可以用 [louisun/HeySpace: 中英文混排自动加空格](https://github.com/louisun/HeySpace) 效果挺好
 
 笔记来源太多, 别太在意这些细节
 
